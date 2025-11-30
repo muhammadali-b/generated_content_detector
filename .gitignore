@@ -3,6 +3,14 @@ backend/.venv/
 backend/__pycache__/
 backend/*.pyc
 
+# ML Data & Artifacts
+backend/data/
+backend/ml/*.npz
+backend/ml/*.npy
+backend/ml/*.pt
+backend/models/
+backend/checkpoints/
+
 # Node / Next.js
 web/node_modules/
 web/.next/
@@ -12,3 +20,11 @@ web/.env.local
 .DS_Store
 .idea/
 .vscode/
+
+# Logs
+*.log
+
+# Python cache
+__pycache__/
+*.py[cod]
+
