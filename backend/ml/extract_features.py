@@ -1,4 +1,3 @@
-# backend/ml/extract_features.py
 
 import os
 from pathlib import Path
@@ -9,24 +8,28 @@ from PIL import Image
 import torch
 import clip
 
-
-# ---- Config ----
-
 # Base paths
 BACKEND_DIR = Path(__file__).resolve().parents[1]
 DATA_DIR = BACKEND_DIR / "data"
 REAL_DIR = DATA_DIR / "real"
 AI_DIR = DATA_DIR / "ai"
 
-# Where to save features
 OUTPUT_PATH = BACKEND_DIR / "ml" / "features_cifake.npz"
 
-# Image extensions we will accept
+# Image extensions our system will accept
 IMAGE_EXTENSIONS = {".jpg", ".jpeg", ".png", ".bmp"}
 
-
 def list_image_files(folder: Path) -> List[Path]:
-    """Return all image files in a folder (non-recursive)."""
+    """
+    Scans a folder and return all image files in a folder (non-recursive).
+
+    Args:
+        folder (Path): Path of the folder with images.
+
+    Returns:
+        List[Path]: a list of file paths.
+    """
+
     files: List[Path] = []
     for entry in folder.iterdir():
         if entry.is_file() and entry.suffix.lower() in IMAGE_EXTENSIONS:
